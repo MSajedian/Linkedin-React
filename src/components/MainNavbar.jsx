@@ -75,11 +75,26 @@ export default class MainNavbar extends Component {
                             </svg>
                             <div>Notifications</div>
                         </Nav.Link>
+
+                        {/* <Nav.Link href="" className="text-center">
+                        <Dropdown>
+                            <Dropdown.Toggle variant="" id="dropdown-basic">
+                            <img width="24" src="https://via.placeholder.com/25" alt="25*25" />
+                            <span>Me</span>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        </Nav.Link> */}
+
                         <Nav.Link href="" className="text-center" >
                             <img width="24" src="https://via.placeholder.com/25" alt="25*25" />
                             <div style={{ padding: '0' }}>
                                 <NavDropdown
-                                    menuAlign="right"
                                     title="Me"
                                     id="me-nav-dropdown"
                                     className="dropdown-menu-right"
@@ -101,7 +116,6 @@ export default class MainNavbar extends Component {
                                     <NavDropdown.Item href="/">Sing Out</NavDropdown.Item>
                                 </NavDropdown>
                             </div>
-
                         </Nav.Link>
 
                         <Nav.Link href="" className="text-center" style={{ borderLeft: '1px solid rgba(0, 0, 0, 0.2)' }} onClick={this.handleShow}>
@@ -126,7 +140,7 @@ export default class MainNavbar extends Component {
                             <Modal.Body>
 
                                 <div>
-                                    <ul className="global-nav__products p2 list-style-none" style={{display:'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent:'space-between'}}>
+                                    <ul className="global-nav__products p2 list-style-none" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                                         <li id="learning-app-nav-link" className="global-nav__product text-center">
 
                                             <a tabindex="0" data-control-name="nav_launcher_learning" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/learning/?trk=nav_neptune_learning" id="ember754" className="global-nav__product-icon-link ember-view">
@@ -304,9 +318,9 @@ export default class MainNavbar extends Component {
                                         </li>
                                     </ul>
                                 </div>
-                        <Modal.Footer></Modal.Footer>
-                        <Modal.Title>Visit More LinkedIn Products</Modal.Title>
-                        <Modal.Footer></Modal.Footer>
+                                <Modal.Footer></Modal.Footer>
+                                <Modal.Title>Visit More LinkedIn Products</Modal.Title>
+                                <Modal.Footer></Modal.Footer>
                                 <div className="ph5">
                                     <ul className="list-style-none pb2">
                                         <li
