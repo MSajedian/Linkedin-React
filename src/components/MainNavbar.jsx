@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Navbar, Nav, NavDropdown, Modal, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../src/styles/Navbar.css';
 
 export default class MainNavbar extends Component {
@@ -19,7 +18,7 @@ export default class MainNavbar extends Component {
                 className="justify-content-between align-items-center"
             >
                 <Navbar.Brand href="#" className="ms-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" style={{ color: 'blue' }} fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" style={{ color: 'rgb(10, 102, 194)' }} fill="currentColor">
                         <title>
                             LinkedIn
                         </title>
@@ -45,7 +44,7 @@ export default class MainNavbar extends Component {
                         />
                     </div>
 
-                    <Nav className="my-2 my-lg-0 ms-auto" navbarScroll >
+                    <Nav className="my-2 my-lg-0 ms-auto" >
                         <Nav.Link href="" className="text-center" style={{ maxHeight: '100px', }}>
                             <svg height="24" width="24" fill="currentColor">
                                 <path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
@@ -76,47 +75,30 @@ export default class MainNavbar extends Component {
                             <div>Notifications</div>
                         </Nav.Link>
 
-                        {/* <Nav.Link href="" className="text-center">
-                        <Dropdown>
-                            <Dropdown.Toggle variant="" id="dropdown-basic">
+                        <div className="text-center nav-link" >
                             <img width="24" src="https://via.placeholder.com/25" alt="25*25" />
-                            <span>Me</span>
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        </Nav.Link> */}
-
-                        <Nav.Link href="" className="text-center" >
-                            <img width="24" src="https://via.placeholder.com/25" alt="25*25" />
-                            <div style={{ padding: '0' }}>
-                                <NavDropdown
-                                    title="Me"
-                                    id="me-nav-dropdown"
-                                    className="dropdown-menu-right"
-                                >
-                                    <NavDropdown.Item href="/">User Image</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">User Name</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">User current job</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">View Profile</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="/">Account</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">Settings & Privacy</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">Help</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">Language</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="/">Manage</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">Posts & Activity</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">Job Posting Account</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="/">Sing Out</NavDropdown.Item>
-                                </NavDropdown>
-                            </div>
-                        </Nav.Link>
+                            <NavDropdown
+                                title="Me"
+                                id="me-nav-dropdown"
+                                className="dropdown-menu-right"
+                            >
+                                <NavDropdown.Item href="/">User Image</NavDropdown.Item>
+                                <NavDropdown.Item href="/">User Name</NavDropdown.Item>
+                                <NavDropdown.Item href="/">User current job</NavDropdown.Item>
+                                <NavDropdown.Item href="/">View Profile</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="/">Account</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Settings & Privacy</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Help</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Language</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="/">Manage</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Posts & Activity</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Job Posting Account</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="/">Sing Out</NavDropdown.Item>
+                            </NavDropdown>
+                        </div>
 
                         <Nav.Link href="" className="text-center" style={{ borderLeft: '1px solid rgba(0, 0, 0, 0.2)' }} onClick={this.handleShow}>
                             <svg height="24" width="24" fill="currentColor">
