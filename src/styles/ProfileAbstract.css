@@ -30,10 +30,10 @@
   border-color: #004182;
 }
 .personal-img__profile-abstract {
+  position: absolute;
   width: 140px;
   height: 140px;
-  position: absolute;
-  top: 25%;
+  top: -42%;
   left: 3%;
   border-radius: 50%;
   border: 3px solid white;
@@ -46,4 +46,7 @@
 }
 .customize-img__profile-abstract {
   border-radius: 8px;
+}
+.personal-body__profile-abstract {
+  position: relative;
 }
