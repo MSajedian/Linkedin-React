@@ -3,9 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainNavbar from './MainNavbar';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProfileAbstract from './ProfileAbstract';
+import ProfileExperience from './ProfileExperience';
 import Ad from './Ad';
 // import ModalExample from './ModalExample';
 // import Test from './Test';
+
+var _id = "6092b52a0253aa0015964a59";
 
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjAyMjczNzAsImV4cCI6MTYyMTQzNjk3MH0.p6GxtmtZE5QZ0rhZCB4Kxt1z3GlHOTEnByED_yMOiNU");
@@ -21,7 +24,6 @@ export default class ProfilePage extends Component {
         }
     }
     fetchPersonalExperiences = () => {
-        var _id = "5fc4b582b708c200175de893";
 
         var requestOptions = {
             method: 'GET',
@@ -39,7 +41,6 @@ export default class ProfilePage extends Component {
     }
 
     fetchPersonalInfo = () => {
-        var _id = "5fc4b582b708c200175de893";
 
         var requestOptions = {
             method: 'GET',
@@ -72,6 +73,7 @@ export default class ProfilePage extends Component {
                         <Row>
                             <Col sm={9}>
                                 <ProfileAbstract personalInfo={this.state.personalInfo} personalExperiences={this.state.personalExperiences} />
+                                <ProfileExperience personalInfo={this.state.personalInfo} personalExperiences={this.state.personalExperiences} />
                             </Col> <Col sm={3}>
                                 <Ad />
                             </Col>
