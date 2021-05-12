@@ -1,27 +1,61 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import React, { Component } from "react";
+import { Row, Container, Col } from "react-bootstrap";
+import { BsBookmarkFill } from "react-icons/bs";
+import styled from "styled-components";
 
+export default class Dashboard extends Component {
+  render() {
+    return (
+      <Container style={{ width:"50vw"}}>
+        <StyledContainer fluid className="px-4 py-3 mt-3 rounded">
+          <Row className="flex-column">
+            <h5 className="font-weight-normal">Your Dashboard</h5>
+            <p className="font-weight-light font-italic">Private to you</p>
+          </Row>
+          <Row>
+            <Col className="bg-white pt-2 border-right rounded-left">
+              <h4 className="font-weight-normal text-primary">450</h4>
+              <p>Lorem, ipsum dolor.</p>
+            </Col>
+            <Col className="bg-white pt-2">
+              <h4 className="font-weight-normal text-primary">450</h4>
+              <p>Lorem, ipsum dolor.</p>
+            </Col>
+            <Col className="bg-white pt-2 border-left rounded-right">
+              <h4 className="font-weight-normal text-primary">450</h4>
+              <p>Lorem, ipsum dolor.</p>
+            </Col>
+          </Row>
+          <Row className="bg-white mt-3 p-2 rounded my-items">
+            <BsBookmarkFill />
+  
+            <div>
+              <h6 className="m-0">My items</h6>
+              <p className="m-0">Keep track of your jobs, courses and articles</p>
+            </div>
+          </Row>
+        </StyledContainer>
+      </Container>
+    );
+  }
+}
 
-const DashBoard = (props) => {
-  return (
-    <Container className="home-page-card">
-      <Row className="mt-2">
-        <Col md={{ span: 6, offset: 3 }}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Dash Board</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
-              </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
-
-export default DashBoard;
+const StyledContainer = styled(Container)`
+  background-color: #dce6f1;
+  border: 1px solid #dddcd9;
+  & .col {
+    cursor: pointer;
+  }
+  & .my-items {
+    cursor: pointer;
+  }
+  & p {
+    font-size: 0.7rem;
+  }
+  & h4 {
+    font-size: 1.2rem;
+  }
+  & svg {
+    font-size: 1.2rem;
+  }
+`;

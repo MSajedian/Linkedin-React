@@ -1,11 +1,12 @@
 import Dashboard from "./components/DashBoard";
-import Experiences from "./components/Experience";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
   return (
     <>
       <Dashboard />
-      <Experiences />
+     
     </>
   );
 }
