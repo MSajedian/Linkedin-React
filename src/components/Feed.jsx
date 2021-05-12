@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import StartPost from './StartPost';
 
 var Pe_id = "6092b52a0253aa0015964a59";
 
@@ -52,8 +53,8 @@ export default class Feed extends Component {
     }
 
     componentDidMount() {
-        this.fetchPersonalInfo()
-        this.fetchPersonalExperiences()
+        // this.fetchPersonalInfo()
+        // this.fetchPersonalExperiences()
     }
     render() {
         return (
@@ -62,7 +63,15 @@ export default class Feed extends Component {
                     <a href="/" >Get started today - <span> Transform learning into business impact Ad</span> </a>
                 </div>
                 <Container>
-                    
+                    <Row>
+                        <Col sm={3}>
+                        </Col>
+                        <Col sm={6}>
+                            <StartPost />
+                        </Col>
+                        <Col sm={3}>
+                        </Col>
+                    </Row>
 
                 </Container>
             </>

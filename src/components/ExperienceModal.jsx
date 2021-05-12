@@ -36,7 +36,7 @@ class ExperienceModal extends Component {
         };
 
         fetch(`https://striveschool-api.herokuapp.com/api/profile/${this.props.personalinfo._id}/experiences/${this.state.experience._id}`, requestOptions)
-            .then(response => response.json())
+            // .then(response => response.json())
             .then(result => { return (window.location.reload()) })
             .catch(error => console.log('error', error));
     }
