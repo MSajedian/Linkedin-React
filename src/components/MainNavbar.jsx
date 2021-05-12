@@ -17,7 +17,7 @@ export default class MainNavbar extends Component {
                 style={{ backgroundColor: 'white', padding: '0', borderBottom: '1px solid rgba(0, 0, 0, 0.2)' }}
                 className="justify-content-between align-items-center"
             >
-                <Navbar.Brand href="#" className="ms-3">
+                <Navbar.Brand href="/" className="ms-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" style={{ color: 'rgb(10, 102, 194)' }} fill="currentColor">
                         <title>
                             LinkedIn
@@ -85,7 +85,7 @@ export default class MainNavbar extends Component {
                                 <NavDropdown.Item href="/">User Image</NavDropdown.Item>
                                 <NavDropdown.Item href="/">User Name</NavDropdown.Item>
                                 <NavDropdown.Item href="/">User current job</NavDropdown.Item>
-                                <NavDropdown.Item href="/">View Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/">Account</NavDropdown.Item>
                                 <NavDropdown.Item href="/">Settings & Privacy</NavDropdown.Item>

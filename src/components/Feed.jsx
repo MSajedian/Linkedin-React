@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import ProfileAbstract from './ProfileAbstract';
-import ProfileExperience from './ProfileExperience';
-import Ad from './Ad';
-// import ModalExample from './ModalExample';
-// import Test from './Test';
 
 var Pe_id = "6092b52a0253aa0015964a59";
 
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjAyMjczNzAsImV4cCI6MTYyMTQzNjk3MH0.p6GxtmtZE5QZ0rhZCB4Kxt1z3GlHOTEnByED_yMOiNU");
 
-export default class ProfilePage extends Component {
+export default class Feed extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +17,7 @@ export default class ProfilePage extends Component {
             personalExperiences: []
         }
     }
-    fetchPersonalExperiences = () => {
+    fetchPersonalPost = () => {
 
         var requestOptions = {
             method: 'GET',
@@ -67,25 +62,8 @@ export default class ProfilePage extends Component {
                     <a href="/" >Get started today - <span> Transform learning into business impact Ad</span> </a>
                 </div>
                 <Container>
-                    {this.state.IspersonalInfo && this.state.IspersonalExperiences &&
-                        <Row>
-                            <Col sm={9}>
-                                <ProfileAbstract
-                                    personalInfo={this.state.personalInfo}
-                                    personalExperiences={this.state.personalExperiences}
-                                />
-                                <ProfileExperience
-                                    personalInfo={this.state.personalInfo}
-                                    personalExperiences={this.state.personalExperiences}
-                                />
-                            </Col> <Col sm={3}>
-                                <Ad />
-                            </Col>
-                        </Row>
-                    }
+                    
 
-                    {/* <Test /> */}
-                    {/* <ModalExample /> */}
                 </Container>
             </>
         );

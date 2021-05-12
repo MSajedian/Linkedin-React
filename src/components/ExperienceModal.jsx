@@ -1,148 +1,282 @@
 import React, { Component } from 'react';
 import { Button, Modal, Form, Container } from 'react-bootstrap';
 
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjAyMjczNzAsImV4cCI6MTYyMTQzNjk3MH0.p6GxtmtZE5QZ0rhZCB4Kxt1z3GlHOTEnByED_yMOiNU");
+myHeaders.append("Content-Type", "application/json");
+
 class ExperienceModal extends Component {
+
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            experience: {}
+        }
     }
+
+    componentDidMount(prevProps, prevState) {
+        if (this.props !== prevProps) {
+            this.setState({ experience: this.props.selectedexperience })
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props !== prevProps) {
+            this.setState({ experience: this.props.selectedexperience })
+        }
+    }
+
+    DeleteExperience = () => {
+        var myHeadersForDelete = new Headers();
+        myHeadersForDelete.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjAyMjczNzAsImV4cCI6MTYyMTQzNjk3MH0.p6GxtmtZE5QZ0rhZCB4Kxt1z3GlHOTEnByED_yMOiNU");
+
+        var requestOptions = {
+            method: 'DELETE',
+            headers: myHeadersForDelete
+        };
+
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${this.props.personalinfo._id}/experiences/${this.state.experience._id}`, requestOptions)
+            .then(response => response.json())
+            .then(result => { return (window.location.reload()) })
+            .catch(error => console.log('error', error));
+    }
+
+    AddNewExperience = () => {
+        var raw = JSON.stringify({
+            ...this.state.experience,
+            "username": this.props.personalinfo.username,
+            "user": this.props.personalinfo._id
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${this.props.personalinfo._id}/experiences`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                alert("New Experience Added")
+                return (window.location.reload())
+            })
+            .catch(error => alert(error));
+    }
+
+    EditExperience = () => {
+        var raw = JSON.stringify({
+            ...this.state.experience,
+            "username": this.props.personalinfo.username,
+            "user": this.props.personalinfo._id
+        });
+
+        var requestOptions = {
+            method: 'PUT',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${this.props.personalinfo._id}/experiences/${this.state.experience._id}`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                alert("Experience Edited")
+                return (window.location.reload())
+            })
+            .catch(error => alert(error));
+    }
+
     render() {
-        return (
+        if (!this.props.selectedexperience._id) {
+            return (<>
+                {
+                    <Modal {...this.props} >
+                        <Modal.Header closeButton>
+                            <Modal.Title>Add experience</Modal.Title>
+                        </Modal.Header>
+                        <Container>
+                            <Form onSubmit={this.submitEdititon}>
+                                <Form.Group className="my-3" controlId="role">
+                                    <Form.Label>Title *</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ex: Retail Sales Manager"
+                                        value={this.state.experience.role || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                role: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
+                                <Form.Group className="my-3" controlId="company">
+                                    <Form.Label >Company  *</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ex: Microsoft"
+                                        value={this.state.experience.company || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                company: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
 
-            <Modal {...this.props}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add experience</Modal.Title>
-                </Modal.Header>
-                <Container>
-                    <Form>
-                        <Form.Group controlId="AddExperienceForm.ControlInputTitle" className="my-3">
-                            <Form.Label >Title *</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: Retail Sales Manager" />
-                        </Form.Group>
+                                <Form.Group className="my-3" controlId="area">
+                                    <Form.Label >Location</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ex: London, United Kingdom"
+                                        value={this.state.experience.area || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                area: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group controlId="AddExperience.ControlSelectEmploymentType" className="my-3">
-                            <Form.Label>Employment type</Form.Label>
-                            <Form.Control as="select">
-                                <option>-</option>
-                                <option>Full-time</option>
-                                <option>Part-time</option>
-                                <option>Self-employed</option>
-                                <option>Freelance</option>
-                                <option>Contract</option>
-                                <option>Internship</option>
-                                <option>Apprenticeship</option>
-                                <option>Temporary</option>
-                            </Form.Control>
-                            <Form.Label>Country-specific employment types</Form.Label>
-                        </Form.Group>
+                                <Form.Group className="my-3" controlId="startDate">
+                                    <Form.Label>Start Date *</Form.Label>
+                                    <Form.Control
+                                        value={this.state.experience.startDate || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                startDate: e.currentTarget.value
+                                            }
+                                        })}
+                                        type="datetime" />
+                                </Form.Group>
 
-                        <Form.Group controlId="AddExperience.ControlInputCompany" className="my-3">
-                            <Form.Label >Company  *</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: Microsoft" />
-                        </Form.Group>
+                                <Form.Group className="my-3" controlId="description">
+                                    <Form.Label>Description</Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        value={this.state.experience.description || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                description: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group controlId="AddExperience.ControlInputCompany" className="my-3">
-                            <Form.Label >Location</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: London, United Kingdom" />
-                        </Form.Group>
+                            </Form>
+                        </Container>
+                        <Modal.Footer>
+                            <Button variant="primary" onClick={() => this.AddNewExperience()}>
+                                Add New Experience
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                }
+            </>)
 
-                        <Form.Group controlId="AddExperience.CheckboxCurrentlyWorking">
-                            <Form.Check type="checkbox" label="I am currently working in this role" />
-                        </Form.Group>
+        }
+        else if (this.props.selectedexperience._id) {
+            return (<>
+                {
+                    <Modal {...this.props} >
+                        <Modal.Header closeButton>
+                            <Modal.Title>Add experience</Modal.Title>
+                        </Modal.Header>
+                        <Container>
+                            <Form onSubmit={this.submitEdititon}>
+                                <Form.Group className="my-3" controlId="role">
+                                    <Form.Label >Title *</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ex: Retail Sales Manager"
+                                        value={this.state.experience.role || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                role: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
+                                <Form.Group className="my-3" controlId="company">
+                                    <Form.Label >Company  *</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ex: Microsoft"
+                                        value={this.state.experience.company || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                company: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group controlId="AddExperience.ControlSelectStartDateMonth" className="my-3">
-                            <Form.Label>Start Date *</Form.Label>
-                            <Form.Control as="select">
-                                <option>Month</option>
-                                <option>January</option>
-                                <option>February</option>
-                                <option>March</option>
-                                <option>April</option>
-                                <option>May</option>
-                                <option>June</option>
-                                <option>July</option>
-                                <option>August</option>
-                                <option>September</option>
-                                <option>October</option>
-                                <option>November</option>
-                                <option>December</option>
-                            </Form.Control>
-                        </Form.Group>
+                                <Form.Group className="my-3" controlId="area">
+                                    <Form.Label >Location</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ex: London, United Kingdom"
+                                        value={this.state.experience.area || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                area: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group controlId="AddExperience.ControlSelectStartDateYear" className="my-3">
+                                <Form.Group className="my-3" controlId="startDate">
+                                    <Form.Label>Start Date *</Form.Label>
+                                    <Form.Control
+                                        value={this.state.experience.startDate || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                startDate: e.currentTarget.value
+                                            }
+                                        })}
+                                        type="datetime" />
+                                </Form.Group>
 
-                            <Form.Control as="select">
-                                <option>Year</option>
-                                <option>2021</option>
-                                <option>2020</option>
-                                <option>2019</option>
-                                <option>2018</option>
-                                <option>2017</option>
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                                <option>2012</option>
-                                <option>2011</option>
-                                <option>2010</option>
-                                <option>2009</option>
-                                <option>2008</option>
-                                <option>2007</option>
-                                <option>2006</option>
-                                <option>2005</option>
-                                <option>2004</option>
-                                <option>2003</option>
-                                <option>2002</option>
-                                <option>2001</option>
-                                <option>2000</option>
-                            </Form.Control>
-                        </Form.Group>
+                                <Form.Group className="my-3" controlId="description">
+                                    <Form.Label>Description</Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        value={this.state.experience.description || ''}
+                                        onChange={(e) => this.setState({
+                                            experience: {
+                                                ...this.state.experience,
+                                                description: e.currentTarget.value
+                                            }
+                                        })}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group controlId="AddExperience.CheckboxUpdateIndustry">
-                            <Form.Check type="checkbox" label="Update my industry" />
-                        </Form.Group>
+                            </Form>
+                        </Container>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={() => this.DeleteExperience()}>
+                                DELETE
+                           </Button>
+                            <Button variant="primary" onClick={() => this.EditExperience()}>
+                                Edit Experience
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                }
+            </>)
 
-                        <Form.Group controlId="AddExperience.CheckboxUpdateHeadline">
-                            <Form.Check type="checkbox" label="Update my headline" />
-                        </Form.Group>
-
-                        <Form.Group controlId="AddExperience.ControlTextareaHeadline">
-                            <Form.Label>Headline *</Form.Label>
-                            <Form.Control as="textarea" rows={2} />
-                        </Form.Group>
-
-                        <Form.Group controlId="AddExperience.ControlTextareaDescription">
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
-                        </Form.Group>
-
-
-                        <Form.Label>Media</Form.Label>
-                        <Form.Label>Add or link to external documents, photos, sites, videos, and presentations.</Form.Label>
-                        <Form.File
-                            id="AddExperience.customFileUpload"
-                            label="Upload"
-                            custom
-                        />
-
-                        <Form.File
-                            id="AddExperience.customFileLink"
-                            label="Link"
-                            custom
-                        />
-
-                    </Form>
-                </Container>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={this.handleCloseExperience}>
-                        Close
-                               </Button>
-                    <Button variant="primary" onClick={this.handleCloseExperience}>
-                        Save Changes
-                                </Button>
-                </Modal.Footer>
-            </Modal>
-        );
+        }
     }
 }
 
