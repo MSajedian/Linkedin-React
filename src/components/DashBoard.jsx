@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default class Dashboard extends Component {
   render() {
     return (
-      <Container style={{ width:"50vw"}}>
+      <Container style={{ width: "50vw" }}>
         <StyledContainer fluid className="px-4 py-3 mt-3 rounded">
           <Row className="flex-column">
             <h5 className="font-weight-normal">Your Dashboard</h5>
@@ -28,10 +28,12 @@ export default class Dashboard extends Component {
           </Row>
           <Row className="bg-white mt-3 p-2 rounded my-items">
             <BsBookmarkFill />
-  
+
             <div>
               <h6 className="m-0">My items</h6>
-              <p className="m-0">Keep track of your jobs, courses and articles</p>
+              <p className="m-0">
+                Keep track of your jobs, courses and articles
+              </p>
             </div>
           </Row>
         </StyledContainer>
