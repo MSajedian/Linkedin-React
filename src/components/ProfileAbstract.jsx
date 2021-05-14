@@ -15,7 +15,7 @@ export default class ProfileAbstract extends Component {
     render() {
         return (
             <Card className="customize-card__profile-abstract">
-                <Card.Img variant="top" src="https://via.placeholder.com/800x200" alt="800x200" className="customize-img__profile-abstract" />
+                <Card.Img variant="top" src="https://static-exp1.licdn.com/sc/h/9e0ckeb27mzi70ne80f4hv7il" alt="background" className="customize-img__profile-abstract" />
                 <Card.Body className="personal-body__profile-abstract" >
                     <img src={this.state.personalInfo.image} alt="140x140" className="personal-img__profile-abstract" />
                     <Card.Title className="customize-title__profile-abstract">{this.state.personalInfo.name} {this.state.personalInfo.surname}</Card.Title>
