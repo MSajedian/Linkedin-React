@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Col, Modal, Form } from "react-bootstrap";
 
 const SkillsModal = (props) => {
   const [show, setShow] = useState(false);
@@ -14,7 +14,16 @@ const SkillsModal = (props) => {
         <Modal.Header closeButton>
           <Modal.Title>Add/Edit Skills & Experience</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Have you saved changes?...</Modal.Body>
+        <Modal.Body>
+          <Form>
+            <Form.Row>
+              <Col>
+                <Form.Control placeholder="Title..." />
+                <Form.Control className="mt-3"placeholder="Add Experience..." />
+              </Col>
+            </Form.Row>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
