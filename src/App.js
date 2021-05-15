@@ -7,6 +7,7 @@ import Feed from './components/Feed';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainNavbar from './components/MainNavbar';
 import { Component } from 'react';
+
 let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjAyMjczNzAsImV4cCI6MTYyMTQzNjk3MH0.p6GxtmtZE5QZ0rhZCB4Kxt1z3GlHOTEnByED_yMOiNU"
 
 export default class App extends Component {

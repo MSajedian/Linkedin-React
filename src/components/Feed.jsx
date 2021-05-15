@@ -329,8 +329,7 @@ export default class Feed extends Component {
 													padding: "12px 12px 12px 12px",
 												}}
 											>
-												{post.text}<br />
-												{post._id}
+												{post.text}
 											</div>
 											{/* <div className="text-center" > */}
 											<img
@@ -416,7 +415,7 @@ export default class Feed extends Component {
 											<div className="d-flex align-items-center">
 												<Button
 													value={post._id}
-													onClick={this.handleDelete}
+													// onClick={this.handleDelete}
 													variant="light"
 													className="mx-2 text-muted"
 												>
@@ -432,6 +431,17 @@ export default class Feed extends Component {
 													>
 														<path d="M21 3L0 10l7.66 4.26L16 8l-6.26 8.34L14 24l7-21z"></path>
 													</svg>
+													Send
+												</Button>
+											</div>
+											<div className="d-flex align-items-center">
+												<Button
+													value={post._id}
+													onClick={this.handleDelete}
+													variant="light"
+													className="mx-2 text-muted"
+												>
+													
 													Delete
 												</Button>
 											</div>
