@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/linkedin-react/static/css/main.c775603b.chunk.css",
+    "main.js": "/linkedin-react/static/js/main.3971f524.chunk.js",
+    "main.js.map": "/linkedin-react/static/js/main.3971f524.chunk.js.map",
+    "runtime-main.js": "/linkedin-react/static/js/runtime-main.fc0336b1.js",
+    "runtime-main.js.map": "/linkedin-react/static/js/runtime-main.fc0336b1.js.map",
+    "static/css/2.800be05e.chunk.css": "/linkedin-react/static/css/2.800be05e.chunk.css",
+    "static/js/2.1054c71a.chunk.js": "/linkedin-react/static/js/2.1054c71a.chunk.js",
+    "static/js/2.1054c71a.chunk.js.map": "/linkedin-react/static/js/2.1054c71a.chunk.js.map",
+    "static/js/3.eaec4d8f.chunk.js": "/linkedin-react/static/js/3.eaec4d8f.chunk.js",
+    "static/js/3.eaec4d8f.chunk.js.map": "/linkedin-react/static/js/3.eaec4d8f.chunk.js.map",
+    "index.html": "/linkedin-react/index.html",
+    "static/css/2.800be05e.chunk.css.map": "/linkedin-react/static/css/2.800be05e.chunk.css.map",
+    "static/css/main.c775603b.chunk.css.map": "/linkedin-react/static/css/main.c775603b.chunk.css.map",
+    "static/js/2.1054c71a.chunk.js.LICENSE.txt": "/linkedin-react/static/js/2.1054c71a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc0336b1.js",
+    "static/css/2.800be05e.chunk.css",
+    "static/js/2.1054c71a.chunk.js",
+    "static/css/main.c775603b.chunk.css",
+    "static/js/main.3971f524.chunk.js"
+  ]
+}
