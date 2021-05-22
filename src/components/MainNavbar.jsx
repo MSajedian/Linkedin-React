@@ -17,7 +17,7 @@ export default class MainNavbar extends Component {
                 style={{ backgroundColor: 'white', padding: '0', borderBottom: '1px solid rgba(0, 0, 0, 0.2)' }}
                 className="justify-content-between align-items-center"
             >
-                <Navbar.Brand href="/" className="ms-3">
+                <Navbar.Brand href="/Linkedin-React/" className="ms-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" style={{ color: 'rgb(10, 102, 194)' }} fill="currentColor">
                         <title>
                             LinkedIn
@@ -50,7 +50,7 @@ export default class MainNavbar extends Component {
                                 <path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
                             </svg><div>Home</div>
                         </Nav.Link>
-                        <Nav.Link href="" className="text-center">
+                        <Nav.Link href="/Linkedin-React/" className="text-center">
                             <svg height="24" width="24" fill="currentColor" >
                                 <path d="m12 16v6h-9v-6c0-1.7 1.3-3 3-3h3c1.7 0 3 1.3 3 3zm5.5-3c1.9 0 3.5-1.6 3.5-3.5s-1.6-3.5-3.5-3.5-3.5 1.6-3.5 3.5 1.6 3.5 3.5 3.5zm1 2h-2c-1.4 0-2.5 1.1-2.5 2.5v4.5h7v-4.5c0-1.4-1.1-2.5-2.5-2.5zm-11-13c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5z"></path>
                             </svg>
@@ -85,7 +85,7 @@ export default class MainNavbar extends Component {
                                 <NavDropdown.Item href="/">User Image</NavDropdown.Item>
                                 <NavDropdown.Item href="/">User Name</NavDropdown.Item>
                                 <NavDropdown.Item href="/">User current job</NavDropdown.Item>
-                                <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="/Linkedin-React/profile">View Profile</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/">Account</NavDropdown.Item>
                                 <NavDropdown.Item href="/">Settings & Privacy</NavDropdown.Item>

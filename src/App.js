@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainNavbar from './components/MainNavbar';
 import { Component } from 'react';
 
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjAyMjczNzAsImV4cCI6MTYyMTQzNjk3MH0.p6GxtmtZE5QZ0rhZCB4Kxt1z3GlHOTEnByED_yMOiNU"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjE1ODE1MTMsImV4cCI6MTYyMjc5MTExM30.xX1bdh-kAI426pIAHwyGgERUwH-di9UXYWKK1-jFlvY"
 
 export default class App extends Component {
   state = {
@@ -29,10 +29,10 @@ export default class App extends Component {
         <Router>
           <MainNavbar />
           <Switch>
-            <Route exact path="/" >
+            <Route exact path="/Linkedin-React/" >
               <Feed user={this.state.user} token={token} />
             </Route>
-            <Route exact path="/profile">
+            <Route exact path="/Linkedin-React/profile">
               <Profile />
             </Route>
           </Switch>
